@@ -3,7 +3,7 @@ package main
 import (
 	"html/template"
 	"fmt"
-  "net/http"
+	"net/http"
 )
 
 //Page struct
@@ -13,6 +13,9 @@ type Page struct {
 
 //Render the template
 func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
+	fmt.Printf("\n----------------------------------------\n")
+	fmt.Printf(tmpl)
+	fmt.Printf("\n----------------------------------------\n")
 	t, _ := template.ParseFiles(tmpl + ".html")
 	t.Execute(w, p)
 }
@@ -32,7 +35,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	renderTemplate(w, "view", p)
+	renderTemplate(w, "view/" + title, p)
 }
 
 //Main
