@@ -2,3 +2,4 @@
 
 Tests:
 - Simple http server
+- Channels
